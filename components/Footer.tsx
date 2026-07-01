@@ -73,9 +73,9 @@ export default function Footer() {
           {/* Column 1 — Brand */}
           <div className="col-span-2 md:col-span-1">
             <Image
-              src="/logo.png"
-              width={1316}
-              height={474}
+              src="/logo-transparent.png"
+              width={1828}
+              height={399}
               alt="Sciparser"
               className="h-12 w-auto md:h-16 object-contain block"
             />

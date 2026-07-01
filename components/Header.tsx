@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -92,9 +93,9 @@ export default function Header() {
             className="relative shrink-0"
           >
             <Image
-              src="/logo.png"
-              width={1316}
-              height={474}
+              src="/logo-transparent.png"
+              width={1828}
+              height={399}
               alt="Sciparser"
               priority
               className="h-12 w-auto md:h-16 object-contain"
@@ -125,12 +126,12 @@ export default function Header() {
 
           {/* ---------- Desktop CTAs ---------- */}
           <div className="hidden md:flex items-center gap-3">
-            <a href="#" className="btn-ghost">
+            <Link href="/login" className="btn-ghost">
               Sign In
-            </a>
-            <a href="#" className="btn-primary">
+            </Link>
+            <Link href="/signup" className="btn-primary">
               Get Started
-            </a>
+            </Link>
           </div>
 
           {/* ---------- Mobile hamburger ---------- */}
@@ -235,18 +236,20 @@ export default function Header() {
 
               {/* CTAs */}
               <div className="px-6 pb-8 flex flex-col gap-3">
-                <a
-                  href="#"
+                <Link
+                  href="/login"
                   className="btn-ghost justify-center w-full"
+                  onClick={closeDrawer}
                 >
                   Sign In
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/signup"
                   className="btn-primary justify-center w-full"
+                  onClick={closeDrawer}
                 >
                   Get Started
-                </a>
+                </Link>
               </div>
             </motion.aside>
           </>

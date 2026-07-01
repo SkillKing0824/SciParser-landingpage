@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import SocialProof from '@/components/SocialProof';
 import Features from '@/components/Features';
 import LiveDemo from '@/components/LiveDemo';
+import OrbitalTimelineSection from '@/components/OrbitalTimelineSection';
 import HowItWorks from '@/components/HowItWorks';
 import UseCases from '@/components/UseCases';
 import Pricing from '@/components/Pricing';
@@ -20,6 +21,7 @@ export default function Home() {
         <SocialProof />
         <Features />
         <LiveDemo />
+        <OrbitalTimelineSection />
         <HowItWorks />
         <UseCases />
         <Pricing />
