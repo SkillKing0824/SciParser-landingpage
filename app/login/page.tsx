@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, EyeOff, ArrowRight, Zap, Shield, Globe } from 'lucide-react';
+import { AiLoader } from '@/components/ui/ai-loader';
 
 /* ---------- Animated Background Particles ---------- */
 function OrbitalBg() {
@@ -57,8 +58,8 @@ function InputField({ label, type, placeholder, value, onChange, showToggle, onT
   const [focused, setFocused] = useState(false);
   return (
     <div className="group relative">
-      <label className={`block text-xs font-semibold mb-1.5 transition-colors duration-200 ${focused ? 'text-[#22C55E]' : 'text-[#A1A7AE]'}`}>{label}</label>
-      <div className={`relative flex items-center rounded-xl border transition-all duration-300 ${focused ? 'border-[#22C55E] shadow-[0_0_0_3px_rgba(34,197,94,0.15)]' : 'border-[#1F2328] hover:border-[#22C55E]/40'}`}>
+      <label className={`block text-xs font-semibold mb-1.5 transition-colors duration-200 ${focused ? 'text-white' : 'text-[#A1A7AE]'}`}>{label}</label>
+      <div className={`relative flex items-center rounded-xl border transition-all duration-300 ${focused ? 'border-white/20 shadow-[0_0_0_3px_rgba(255,255,255,0.05)]' : 'border-[#1F2328] hover:border-white/10'}`}>
         <input
           type={showToggle ? (showPassword ? 'text' : 'password') : type}
           placeholder={placeholder}
@@ -66,14 +67,13 @@ function InputField({ label, type, placeholder, value, onChange, showToggle, onT
           onChange={(e) => onChange(e.target.value)}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
-          className="w-full bg-[#111418] text-white px-4 py-3 rounded-xl text-sm placeholder-[#6B7280] outline-none"
+          className="w-full bg-[#111418] text-white px-4 py-3 rounded-xl text-sm placeholder-[#6B7280] outline-none focus:outline-none focus:ring-0"
         />
         {showToggle && (
           <button type="button" onClick={onToggle} className="absolute right-3 text-[#6B7280] hover:text-[#22C55E] transition-colors">
             {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
           </button>
         )}
-        <div className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#22C55E] to-[#10B981] rounded-full transition-all duration-500 ${focused ? 'w-full' : 'w-0'}`} />
       </div>
     </div>
   );
@@ -93,7 +93,15 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#0B0F0D]">
+    <>
+      <AnimatePresence>
+        {loading && (
+          <motion.div key="loader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100]">
+            <AiLoader text="SIGNING IN" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <div className="min-h-screen flex bg-[#0B0F0D]">
 
       {/* ---- LEFT PANEL: Visual ---- */}
       <motion.div
@@ -283,5 +291,6 @@ export default function LoginPage() {
         </div>
       </motion.div>
     </div>
+    </>
   );
 }
