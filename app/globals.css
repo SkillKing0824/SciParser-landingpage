@@ -315,7 +315,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary:hover {
   border-color: var(--color-secondary);
-  color: var(--color-white);
+  color: var(--color-text-primary);
 }
 
 .btn-ghost {
@@ -334,7 +334,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-ghost:hover {
-  color: var(--color-white);
+  color: var(--color-text-primary);
 }
 
 /* --- Section Spacing --- */

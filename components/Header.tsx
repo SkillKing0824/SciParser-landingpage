@@ -133,7 +133,7 @@ export default function Header() {
                       text-sm font-medium
                       text-[var(--color-text-secondary)]
                       transition-colors duration-[var(--duration-normal)]
-                      hover:text-[var(--color-white)]
+                      hover:text-[var(--color-text-primary)]
                     "
                   >
                     {label}
@@ -161,7 +161,7 @@ export default function Header() {
               md:hidden flex items-center justify-center
               w-10 h-10 rounded-[var(--radius-md)]
               text-[var(--color-text-secondary)]
-              hover:text-[var(--color-white)]
+              hover:text-[var(--color-text-primary)]
               transition-colors duration-[var(--duration-normal)]
             "
             onClick={() => setMobileOpen(true)}
@@ -214,7 +214,7 @@ export default function Header() {
                     flex items-center justify-center
                     w-10 h-10 rounded-[var(--radius-md)]
                     text-[var(--color-text-secondary)]
-                    hover:text-[var(--color-white)]
+                    hover:text-[var(--color-text-primary)]
                     transition-colors duration-[var(--duration-normal)]
                   "
                   aria-label="Close menu"
@@ -243,7 +243,7 @@ export default function Header() {
                         className="
                           block py-3 text-base font-medium
                           text-[var(--color-text-secondary)]
-                          hover:text-[var(--color-white)]
+                          hover:text-[var(--color-text-primary)]
                           transition-colors duration-[var(--duration-normal)]
                         "
                       >
