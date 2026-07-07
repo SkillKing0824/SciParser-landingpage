@@ -126,7 +126,7 @@ export default function SignUpPage() {
       >
         <div className="lg:hidden mb-6">
           <Link href="/">
-            <div className="relative h-14 md:h-16 w-[220px] md:w-[260px]">
+            <div className="relative h-16 md:h-24 w-[260px] md:w-[380px]">
               <Image src="/logo-transparent.png" fill alt="Sciparser" priority className="object-contain object-left show-in-dark" />
               <Image src="/logo-light-v2.png" fill alt="Sciparser" priority className="object-contain object-left show-in-light scale-[1.4] translate-y-[-2px] origin-left" />
             </div>
@@ -237,7 +237,7 @@ export default function SignUpPage() {
 
         <div className="relative z-10">
           <Link href="/">
-            <div className="relative h-16 md:h-20 w-[260px] md:w-[320px]">
+            <div className="relative h-20 md:h-28 w-[320px] md:w-[450px]">
               <Image src="/logo-transparent.png" fill alt="Sciparser" priority className="object-contain object-left show-in-dark" />
               <Image src="/logo-light-v2.png" fill alt="Sciparser" priority className="object-contain object-left show-in-light scale-[1.4] translate-y-[-2px] origin-left" />
             </div>
