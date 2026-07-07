@@ -113,7 +113,7 @@ export default function LoginPage() {
         <OrbitalBg />
         <div className="relative z-10">
           <Link href="/">
-            <div className="relative h-14 w-[210px]">
+            <div className="relative h-16 md:h-20 w-[260px] md:w-[320px]">
               <Image src="/logo-transparent.png" fill alt="Sciparser" priority className="object-contain object-left show-in-dark" />
               <Image src="/logo-light-v2.png" fill alt="Sciparser" priority className="object-contain object-left show-in-light scale-[1.4] translate-y-[-2px] origin-left" />
             </div>
