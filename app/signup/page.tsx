@@ -126,9 +126,9 @@ export default function SignUpPage() {
       >
         <div className="lg:hidden mb-6">
           <Link href="/">
-            <div className="relative h-20 md:h-24 w-[300px] md:w-[380px]">
-              <Image src="/logo-transparent.png" fill alt="Sciparser" priority className="object-contain object-left show-in-dark scale-[1.2] md:scale-[1.3] origin-left" />
-              <Image src="/logo-light-v2.png" fill alt="Sciparser" priority className="object-contain object-left show-in-light scale-[2.0] md:scale-[2.2] translate-y-[-4px] origin-left" />
+            <div className="relative h-12 md:h-14 w-[180px] md:w-[210px]">
+              <Image src="/logo-transparent.png" fill alt="Sciparser" priority className="object-contain object-left show-in-dark" />
+              <Image src="/logo-light-v2.png" fill alt="Sciparser" priority className="object-contain object-left show-in-light scale-[2.2] translate-y-[-4px] origin-left" />
             </div>
           </Link>
         </div>
@@ -237,9 +237,9 @@ export default function SignUpPage() {
 
         <div className="relative z-10">
           <Link href="/">
-            <div className="relative h-24 md:h-32 w-[350px] md:w-[500px]">
-              <Image src="/logo-transparent.png" fill alt="Sciparser" priority className="object-contain object-left show-in-dark scale-[1.2] md:scale-[1.3] origin-left" />
-              <Image src="/logo-light-v2.png" fill alt="Sciparser" priority className="object-contain object-left show-in-light scale-[2.0] md:scale-[2.2] translate-y-[-4px] origin-left" />
+            <div className="relative h-14 md:h-16 w-[210px] md:w-[240px]">
+              <Image src="/logo-transparent.png" fill alt="Sciparser" priority className="object-contain object-left show-in-dark" />
+              <Image src="/logo-light-v2.png" fill alt="Sciparser" priority className="object-contain object-left show-in-light scale-[2.2] translate-y-[-4px] origin-left" />
             </div>
           </Link>
         </div>
