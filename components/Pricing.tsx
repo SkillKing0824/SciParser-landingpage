@@ -139,7 +139,7 @@ function PricingCard({
 
       {/* Tier name */}
       <h3
-        className="text-xl font-semibold text-white"
+        className="text-xl font-semibold text-[var(--color-text-primary)]"
         style={{ fontFamily: 'var(--font-display)' }}
       >
         {tier.name}
@@ -147,7 +147,7 @@ function PricingCard({
 
       {/* Price */}
       <div className="mt-4 flex items-baseline gap-1">
-        <span className="text-5xl font-bold text-white">{tier.price}</span>
+        <span className="text-5xl font-bold text-[var(--color-text-primary)]">{tier.price}</span>
         {tier.priceSuffix && (
           <span
             className="text-sm"
@@ -213,7 +213,7 @@ export default function Pricing() {
           animate={isInView ? 'visible' : 'hidden'}
         >
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-text-primary)]"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             Simple, transparent pricing

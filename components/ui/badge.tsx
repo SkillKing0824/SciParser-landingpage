@@ -11,7 +11,7 @@ const badgeVariants = cva(
         default:
           "border-transparent bg-[var(--color-secondary)] text-[var(--color-primary)] hover:bg-[var(--color-secondary-dim)]",
         secondary:
-          "border-transparent bg-[var(--color-surface-elevated)] text-white hover:bg-[var(--color-surface-elevated)]/80",
+          "border-transparent bg-[var(--color-surface-elevated)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface-elevated)]/80",
         destructive:
           "border-transparent bg-[var(--color-error)] text-white hover:bg-[var(--color-error)]/80",
         outline: "text-[var(--color-text-primary)] border-[var(--color-border)]",

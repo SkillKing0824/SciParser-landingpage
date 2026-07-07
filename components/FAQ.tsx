@@ -121,7 +121,7 @@ function AccordionItem({
         className="flex w-full items-center justify-between py-5 text-left cursor-pointer"
       >
         <span
-          className="text-base font-medium text-white pr-4 md:text-lg"
+          className="text-base font-medium text-[var(--color-text-primary)] pr-4 md:text-lg"
           style={{ fontFamily: 'var(--font-display)' }}
         >
           {item.question}
@@ -183,7 +183,7 @@ export default function FAQ() {
       <div className="ml-0 max-w-3xl md:ml-[10%] lg:ml-[15%]">
         {/* ---- Heading ---- */}
         <motion.h2
-          className="mb-12 text-3xl font-bold text-white md:mb-16 md:text-4xl lg:text-5xl"
+          className="mb-12 text-3xl font-bold text-[var(--color-text-primary)] md:mb-16 md:text-4xl lg:text-5xl"
           style={{ fontFamily: 'var(--font-display)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}

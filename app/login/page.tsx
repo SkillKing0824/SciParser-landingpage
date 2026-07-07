@@ -44,8 +44,8 @@ function StatCard({ icon: Icon, value, label }: { icon: any; value: string; labe
         <Icon size={14} className="text-[#22C55E]" />
       </div>
       <div>
-        <div className="text-white font-bold text-sm font-[Outfit,sans-serif]">{value}</div>
-        <div className="text-[#A1A7AE] text-xs">{label}</div>
+        <div className="text-[var(--color-text-primary)] font-bold text-sm font-[Outfit,sans-serif]">{value}</div>
+        <div className="text-[var(--color-text-secondary)] text-xs">{label}</div>
       </div>
     </div>
   );
@@ -58,8 +58,8 @@ function InputField({ label, type, placeholder, value, onChange, showToggle, onT
   const [focused, setFocused] = useState(false);
   return (
     <div className="group relative">
-      <label className={`block text-xs font-semibold mb-1.5 transition-colors duration-200 ${focused ? 'text-white' : 'text-[#A1A7AE]'}`}>{label}</label>
-      <div className={`relative flex items-center rounded-xl border transition-all duration-300 ${focused ? 'border-white/20 shadow-[0_0_0_3px_rgba(255,255,255,0.05)]' : 'border-[#1F2328] hover:border-white/10'}`}>
+      <label className={`block text-xs font-semibold mb-1.5 transition-colors duration-200 ${focused ? 'text-[var(--color-text-primary)]' : 'text-[var(--color-text-secondary)]'}`}>{label}</label>
+      <div className={`relative flex items-center rounded-xl border transition-all duration-300 ${focused ? 'border-[var(--color-secondary)] shadow-[0_0_0_3px_var(--color-secondary-glow)]' : 'border-[var(--color-border)] hover:border-[var(--color-border-hover)]'}`}>
         <input
           type={showToggle ? (showPassword ? 'text' : 'password') : type}
           placeholder={placeholder}
@@ -67,10 +67,10 @@ function InputField({ label, type, placeholder, value, onChange, showToggle, onT
           onChange={(e) => onChange(e.target.value)}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
-          className="w-full bg-[#111418] text-white px-4 py-3 rounded-xl text-sm placeholder-[#6B7280] outline-none focus:outline-none focus:ring-0"
+          className="w-full bg-[var(--color-surface)] text-[var(--color-text-primary)] px-4 py-3 rounded-xl text-sm placeholder-[#6B7280] outline-none focus:outline-none focus:ring-0"
         />
         {showToggle && (
-          <button type="button" onClick={onToggle} className="absolute right-3 text-[#6B7280] hover:text-[#22C55E] transition-colors">
+          <button type="button" onClick={onToggle} className="absolute right-3 text-[var(--color-text-muted)] hover:text-[#22C55E] transition-colors">
             {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
           </button>
         )}
@@ -101,19 +101,22 @@ export default function LoginPage() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="min-h-screen flex bg-[#0B0F0D]">
+      <div className="h-screen flex bg-[var(--color-primary)] overflow-hidden">
 
       {/* ---- LEFT PANEL: Visual ---- */}
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="hidden lg:flex flex-col justify-between w-[55%] relative overflow-hidden p-14 border-r border-[#1F2328]"
+        className="hidden lg:flex flex-col justify-between w-[55%] relative overflow-hidden p-10 border-r border-[var(--color-border)]"
       >
         <OrbitalBg />
         <div className="relative z-10">
           <Link href="/">
-            <Image src="/logo-transparent.png" width={1828} height={399} alt="Sciparser" className="h-14 w-auto object-contain" priority />
+            <>
+              <Image src="/logo-transparent.png" width={1828} height={399} alt="Sciparser" className="h-14 w-auto object-contain show-in-dark" priority />
+              <Image src="/logo-light-v2.png" width={1536} height={1024} alt="Sciparser" className="w-[220px] md:w-[293px] h-auto object-contain show-in-light" priority />
+            </>
           </Link>
         </div>
 
@@ -145,7 +148,7 @@ export default function LoginPage() {
               ].map((name, i) => (
                 <div key={i} className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#22C55E]/25 bg-[#22C55E]/8 whitespace-nowrap flex-shrink-0">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
-                  <span className="text-white/80 text-xs font-medium">{name}</span>
+                  <span className="text-[var(--color-text-primary)]/80 text-xs font-medium">{name}</span>
                 </div>
               ))}
             </div>
@@ -168,28 +171,28 @@ export default function LoginPage() {
               ].map((name, i) => (
                 <div key={i} className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#10B981]/25 bg-[#10B981]/8 whitespace-nowrap flex-shrink-0">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
-                  <span className="text-white/80 text-xs font-medium">{name}</span>
+                  <span className="text-[var(--color-text-primary)]/80 text-xs font-medium">{name}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Fade edges */}
-          <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#0B0F0D] to-transparent pointer-events-none z-10" />
-          <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#0B0F0D] to-transparent pointer-events-none z-10" />
+          <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[var(--color-primary)] to-transparent pointer-events-none z-10" />
+          <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[var(--color-primary)] to-transparent pointer-events-none z-10" />
         </div>
 
         <div className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#22C55E]/30 bg-[#22C55E]/10 mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#22C55E]/30 bg-[#22C55E]/10 mb-4">
               <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse" />
               <span className="text-[#22C55E] text-xs font-mono tracking-widest">AI-POWERED BROWSER AGENT</span>
             </div>
-            <h1 className="text-5xl font-bold font-[Outfit,sans-serif] text-white leading-tight mb-6">
+            <h1 className="text-4xl font-bold font-[Outfit,sans-serif] text-[var(--color-text-primary)] leading-tight mb-4">
               Welcome back to<br />
               <span className="bg-gradient-to-r from-[#22C55E] to-[#10B981] bg-clip-text text-transparent">the future</span>
             </h1>
-            <p className="text-[#A1A7AE] text-lg leading-relaxed max-w-md mb-10">
+            <p className="text-[var(--color-text-secondary)] text-base leading-relaxed max-w-md mb-6">
               Your autonomous browser agent is ready. Log in to pick up where you left off and let Sciparser do the heavy lifting.
             </p>
             <div className="grid grid-cols-3 gap-3">
@@ -207,18 +210,21 @@ export default function LoginPage() {
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="flex-1 flex flex-col items-center justify-center p-8 md:p-16 relative"
+        className="flex-1 flex flex-col items-center justify-center p-6 md:p-10 relative"
       >
         <div className="lg:hidden mb-10">
           <Link href="/">
-            <Image src="/logo-transparent.png" width={1828} height={399} alt="Sciparser" className="h-12 w-auto object-contain" priority />
+            <>
+              <Image src="/logo-transparent.png" width={1828} height={399} alt="Sciparser" className="h-12 w-auto object-contain show-in-dark" priority />
+              <Image src="/logo-light-v2.png" width={1536} height={1024} alt="Sciparser" className="w-[220px] md:w-[293px] h-auto object-contain show-in-light" priority />
+            </>
           </Link>
         </div>
 
         <div className="w-full max-w-md">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="mb-10">
-            <h2 className="text-3xl font-bold font-[Outfit,sans-serif] text-white mb-2">Sign in</h2>
-            <p className="text-[#A1A7AE]">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="mb-6">
+            <h2 className="text-3xl font-bold font-[Outfit,sans-serif] text-[var(--color-text-primary)] mb-2">Sign in</h2>
+            <p className="text-[var(--color-text-secondary)]">
               New here?{' '}
               <Link href="/signup" className="text-[#22C55E] hover:underline font-medium">Create an account →</Link>
             </p>
@@ -231,10 +237,10 @@ export default function LoginPage() {
             <div className="flex items-center justify-between pt-1">
               <label className="flex items-center gap-2.5 cursor-pointer group">
                 <div onClick={() => setRemember(!remember)}
-                  className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all duration-200 cursor-pointer ${remember ? 'bg-[#22C55E] border-[#22C55E]' : 'border-[#1F2328] hover:border-[#22C55E]/50'}`}>
+                  className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all duration-200 cursor-pointer ${remember ? 'bg-[#22C55E] border-[#22C55E]' : 'border-[var(--color-border)] hover:border-[#22C55E]/50'}`}>
                   {remember && <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#0B0F0D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}
                 </div>
-                <span className="text-sm text-[#A1A7AE] group-hover:text-white transition-colors">Remember me</span>
+                <span className="text-sm text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors">Remember me</span>
               </label>
               <a href="#" className="text-sm text-[#22C55E] hover:underline">Forgot password?</a>
             </div>
@@ -255,16 +261,16 @@ export default function LoginPage() {
             </motion.button>
           </motion.form>
 
-          <div className="flex items-center gap-4 my-8">
+          <div className="flex items-center gap-4 my-5">
             <div className="flex-1 h-px bg-[#1F2328]" />
-            <span className="text-[#6B7280] text-xs font-mono">OR CONTINUE WITH</span>
+            <span className="text-[var(--color-text-muted)] text-xs font-mono">OR CONTINUE WITH</span>
             <div className="flex-1 h-px bg-[#1F2328]" />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             {['Google', 'GitHub'].map((provider) => (
               <motion.button key={provider} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-                className="py-3 px-4 rounded-xl border border-[#1F2328] text-[#A1A7AE] hover:text-white text-sm font-medium flex items-center justify-center gap-2 transition-all duration-200 bg-[#111418] hover:bg-[#171B1E]">
+                className="py-3 px-4 rounded-xl border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-medium flex items-center justify-center gap-2 transition-all duration-200 bg-[var(--color-surface)] hover:bg-[var(--color-surface-elevated)]">
                 {provider === 'Google' ? (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -282,7 +288,7 @@ export default function LoginPage() {
             ))}
           </div>
 
-          <p className="text-center text-xs text-[#6B7280] mt-8">
+          <p className="text-center text-xs text-[var(--color-text-muted)] mt-8">
             By signing in you agree to our{' '}
             <a href="#" className="text-[#22C55E] hover:underline">Terms</a>{' '}
             &amp;{' '}

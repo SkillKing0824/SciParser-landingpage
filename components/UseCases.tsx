@@ -123,7 +123,7 @@ function UseCaseCard({
       {/* Text */}
       <div className="min-w-0">
         <h3
-          className="text-lg font-semibold text-white"
+          className="text-lg font-semibold text-[var(--color-text-primary)]"
           style={{ fontFamily: 'var(--font-display)' }}
         >
           {useCase.title}
@@ -163,7 +163,7 @@ export default function UseCases() {
           animate={isInView ? 'visible' : 'hidden'}
         >
           <h2
-            className="text-3xl font-bold text-white md:text-4xl lg:text-5xl"
+            className="text-3xl font-bold text-[var(--color-text-primary)] md:text-4xl lg:text-5xl"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             Real tasks, not abstractions

@@ -82,20 +82,31 @@ export default function RadialOrbitalTimeline({
   };
 
   useEffect(() => {
-    let rotationTimer: NodeJS.Timeout;
+    let animationFrameId: number;
+    let lastTime = performance.now();
 
-    if (autoRotate && viewMode === "orbital") {
-      rotationTimer = setInterval(() => {
+    const rotate = (time: number) => {
+      if (autoRotate && viewMode === "orbital") {
+        const deltaTime = time - lastTime;
+        // ~6 degrees per second => 6 * (deltaTime / 1000)
+        const angleChange = 6 * (deltaTime / 1000);
+        
         setRotationAngle((prev) => {
-          const newAngle = (prev + 0.3) % 360;
+          const newAngle = (prev + angleChange) % 360;
           return Number(newAngle.toFixed(3));
         });
-      }, 50);
+      }
+      lastTime = time;
+      animationFrameId = requestAnimationFrame(rotate);
+    };
+
+    if (autoRotate && viewMode === "orbital") {
+      animationFrameId = requestAnimationFrame(rotate);
     }
 
     return () => {
-      if (rotationTimer) {
-        clearInterval(rotationTimer);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
       }
     };
   }, [autoRotate, viewMode]);
@@ -307,7 +318,7 @@ export default function RadialOrbitalTimeline({
                                   key={relatedId}
                                   variant="outline"
                                   size="sm"
-                                  className="flex items-center h-6 px-2 py-0 text-[10px] rounded border-[var(--color-border)] bg-[var(--color-primary)] hover:bg-[var(--color-primary-mid)] text-[var(--color-text-secondary)] hover:text-white transition-all"
+                                  className="flex items-center h-6 px-2 py-0 text-[10px] rounded border-[var(--color-border)] bg-[var(--color-primary)] hover:bg-[var(--color-primary-mid)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-all"
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     toggleItem(relatedId);

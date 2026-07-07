@@ -4,7 +4,9 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import ThemeSwitchCircular from './ui/theme-switch-circular';
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -43,6 +45,12 @@ function scrollToSection(
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   /* --- scroll listener --- */
   useEffect(() => {
@@ -92,14 +100,25 @@ export default function Header() {
             }}
             className="relative shrink-0"
           >
-            <Image
-              src="/logo-transparent.png"
-              width={1828}
-              height={399}
-              alt="Sciparser"
-              priority
-              className="h-12 w-auto md:h-16 object-contain"
-            />
+            <div className="relative h-12 md:h-16 w-[180px] md:w-[240px]">
+              <Image
+                src="/logo-transparent.png"
+                fill
+                alt="Sciparser"
+                priority
+                className="object-contain object-left show-in-dark"
+              />
+              <div className="show-in-light absolute inset-0 flex items-center -translate-x-5 translate-y-1">
+                <Image
+                  src="/logo-light-v2.png"
+                  width={1536}
+                  height={1024}
+                  alt="Sciparser"
+                  priority
+                  className="w-full h-auto object-contain object-left scale-[1.4] origin-left"
+                />
+              </div>
+            </div>
           </a>
 
           {/* ---------- Desktop nav ---------- */}
@@ -126,6 +145,7 @@ export default function Header() {
 
           {/* ---------- Desktop CTAs ---------- */}
           <div className="hidden md:flex items-center gap-3">
+            <ThemeSwitchCircular className="mr-2" />
             <Link href="/login" className="btn-ghost">
               Sign In
             </Link>
@@ -236,6 +256,9 @@ export default function Header() {
 
               {/* CTAs */}
               <div className="px-6 pb-8 flex flex-col gap-3">
+                <div className="flex justify-center mb-2">
+                  <ThemeSwitchCircular />
+                </div>
                 <Link
                   href="/login"
                   className="btn-ghost justify-center w-full"

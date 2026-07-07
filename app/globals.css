@@ -10,7 +10,34 @@
 
 /* --- Design Tokens --- */
 :root {
-  /* Colors — 60:30:10 */
+  /* Light Theme Colors (Default) */
+  --color-primary: #FFFFFF;
+  --color-primary-light: #F9FAFB;
+  --color-primary-lighter: #F3F4F6;
+  --color-primary-mid: #E5E7EB;
+  --color-secondary: #16A34A;
+  --color-secondary-dim: #15803d;
+  --color-secondary-glow: #16A34A22;
+  --color-accent: #059669;
+  --color-accent-glow: #05966922;
+  --color-neutral-dark: #E5E7EB;
+  --color-neutral: #6B7280;
+  --color-neutral-light: #4B5563;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-border: #E5E7EB;
+  --color-border-hover: #16A34A;
+  --color-surface: #F9FAFB;
+  --color-surface-elevated: #FFFFFF;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4B5563;
+  --color-text-muted: #6B7280;
+  --color-success: #16A34A;
+  --color-error: #EF4444;
+}
+
+.dark {
+  /* Dark Theme Colors */
   --color-primary: #0B0F0D;
   --color-primary-light: #111418;
   --color-primary-lighter: #171B1E;
@@ -24,6 +51,7 @@
   --color-neutral: #A1A7AE;
   --color-neutral-light: #D1D5DB;
   --color-white: #FFFFFF;
+  --color-black: #000000;
   --color-border: #1F2328;
   --color-border-hover: #22C55E;
   --color-surface: #111418;
@@ -33,7 +61,9 @@
   --color-text-muted: #6B7280;
   --color-success: #22C55E;
   --color-error: #EF4444;
+}
 
+:root {
   /* Fonts */
   --font-display: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
@@ -83,7 +113,7 @@
 /* --- Tailwind v4 Theme Extension --- */
 @theme inline {
   --color-background: var(--color-primary);
-  --color-foreground: var(--color-white);
+  --color-foreground: var(--color-text-primary);
   --color-surface: var(--color-surface);
   --color-surface-elevated: var(--color-surface-elevated);
   --color-border: var(--color-border);
@@ -111,9 +141,13 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Theme Toggle Helpers */
+html.dark .show-in-light { display: none !important; }
+html:not(.dark) .show-in-dark { display: none !important; }
+
 body {
   background: var(--color-primary);
-  color: var(--color-white);
+  color: var(--color-text-primary);
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;

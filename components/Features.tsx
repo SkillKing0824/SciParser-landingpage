@@ -104,7 +104,7 @@ function FeatureCard({
 
       {/* Title */}
       <h3
-        className="mt-4 text-xl font-semibold text-white"
+        className="mt-4 text-xl font-semibold text-[var(--color-text-primary)]"
         style={{ fontFamily: 'var(--font-display)' }}
       >
         {feature.title}
@@ -145,7 +145,7 @@ export default function Features() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as any }}
         >
           <h2
-            className="text-3xl font-bold text-white md:text-4xl lg:text-5xl"
+            className="text-3xl font-bold text-[var(--color-text-primary)] md:text-4xl lg:text-5xl"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             Built for the tasks you actually do

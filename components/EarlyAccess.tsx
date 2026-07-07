@@ -35,7 +35,7 @@ export default function EarlyAccess() {
       <div className="mx-auto w-full max-w-3xl flex flex-col items-center text-center">
         {/* ─── Heading ─── */}
         <motion.h2
-          className="font-[var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold text-white"
+          className="font-[var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-text-primary)]"
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{ duration: 0.6, ease }}
@@ -66,7 +66,7 @@ export default function EarlyAccess() {
             type="email"
             placeholder="Enter your email"
             aria-label="Email address"
-            className="w-full md:w-80 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg px-4 py-3 text-white placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-secondary)] focus:outline-none transition-colors"
+            className="w-full md:w-80 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg px-4 py-3 text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-secondary)] focus:outline-none transition-colors"
             style={{
               fontFamily: 'var(--font-body)',
               transitionDuration: 'var(--duration-normal)',

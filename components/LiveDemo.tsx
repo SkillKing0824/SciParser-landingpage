@@ -188,7 +188,7 @@ export default function LiveDemo() {
           className="text-center mb-12 md:mb-16"
         >
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-text-primary)]"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             See it in action
@@ -242,7 +242,7 @@ export default function LiveDemo() {
                 {/* Form header */}
                 <div className="mb-6">
                   <h3
-                    className="text-lg font-semibold text-white"
+                    className="text-lg font-semibold text-[var(--color-text-primary)]"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     New Insurance Claim
@@ -272,7 +272,7 @@ export default function LiveDemo() {
                       {step.field === 'description' ? (
                         <textarea
                           ref={(el) => { if (currentStep === index && el && document.activeElement !== el) el.focus(); }}
-                          className="relative w-full rounded-md px-3 py-2 text-sm transition-all duration-300 text-white placeholder:text-[var(--color-text-muted)] resize-none focus:outline-none"
+                          className="relative w-full rounded-md px-3 py-2 text-sm transition-all duration-300 text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] resize-none focus:outline-none"
                           style={{
                             background: 'var(--color-primary)',
                             border: `1px solid ${currentStep === index ? 'var(--color-secondary)' : 'var(--color-border)'}`,
@@ -290,7 +290,7 @@ export default function LiveDemo() {
                         <input
                           type="text"
                           ref={(el) => { if (currentStep === index && el && document.activeElement !== el) el.focus(); }}
-                          className="relative w-full rounded-md px-3 py-2 text-sm transition-all duration-300 text-white placeholder:text-[var(--color-text-muted)] focus:outline-none"
+                          className="relative w-full rounded-md px-3 py-2 text-sm transition-all duration-300 text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none"
                           style={{
                             background: 'var(--color-primary)',
                             border: `1px solid ${currentStep === index ? 'var(--color-secondary)' : 'var(--color-border)'}`,
@@ -395,19 +395,13 @@ export default function LiveDemo() {
                       fontWeight: line.startsWith('✓') ? 600 : 400,
                     }}
                   >
-                    {line.split('').map((char, charIndex) => (
-                      <motion.span
-                        key={charIndex}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{
-                          delay: (charIndex * 0.015),
-                          duration: 0.1,
-                        }}
-                      >
-                        {char}
-                      </motion.span>
-                    ))}
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {line}
+                    </motion.span>
                   </div>
                 ))}
                 {/* Blinking cursor at end of log */}

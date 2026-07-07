@@ -72,13 +72,23 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {/* Column 1 — Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Image
-              src="/logo-transparent.png"
-              width={1828}
-              height={399}
-              alt="Sciparser"
-              className="h-12 w-auto md:h-16 object-contain block"
-            />
+            <div className="relative h-14 md:h-16 w-[180px] md:w-[220px]">
+              <Image
+                src="/logo-transparent.png"
+                fill
+                alt="Sciparser"
+                className="object-contain object-left show-in-dark"
+              />
+              <div className="show-in-light absolute inset-0 flex items-center -translate-x-8 translate-y-3">
+                <Image
+                  src="/logo-light-v2.png"
+                  width={1536}
+                  height={1024}
+                  alt="Sciparser"
+                  className="w-full h-auto object-contain object-left scale-[1.3] origin-left"
+                />
+              </div>
+            </div>
 
             <p className="text-sm text-[var(--color-text-secondary)] mt-3">
               Your AI agent for real-world tasks.
@@ -119,7 +129,7 @@ export default function Footer() {
 
           {/* Column 2 — Product */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-[var(--color-text-primary)] uppercase tracking-wider mb-4">
               Product
             </h3>
             <ul className="space-y-2">
@@ -127,7 +137,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors block"
+                    className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors block"
                   >
                     {link.label}
                   </a>
@@ -138,7 +148,7 @@ export default function Footer() {
 
           {/* Column 3 — Company */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-[var(--color-text-primary)] uppercase tracking-wider mb-4">
               Company
             </h3>
             <ul className="space-y-2">
@@ -146,7 +156,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors block"
+                    className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors block"
                   >
                     {link.label}
                   </a>
@@ -157,7 +167,7 @@ export default function Footer() {
 
           {/* Column 4 — Legal + Newsletter */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-[var(--color-text-primary)] uppercase tracking-wider mb-4">
               Legal
             </h3>
             <ul className="space-y-2">
@@ -165,7 +175,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-[var(--color-text-secondary)] hover:text-white transition-colors block"
+                    className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors block"
                   >
                     {link.label}
                   </a>
@@ -191,7 +201,7 @@ export default function Footer() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your email"
                     required
-                    className="w-full bg-[var(--color-primary)] border border-[var(--color-border)] rounded-md px-3 py-2 text-sm text-white placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-secondary)] focus:outline-none transition-colors"
+                    className="w-full bg-[var(--color-primary)] border border-[var(--color-border)] rounded-md px-3 py-2 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-secondary)] focus:outline-none transition-colors"
                   />
                   <button
                     type="submit"

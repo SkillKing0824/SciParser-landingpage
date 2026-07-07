@@ -93,7 +93,7 @@ export default function HowItWorks() {
         >
           <motion.h2
             variants={headingVariants}
-            className="font-[var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5"
+            className="font-[var(--font-display)] text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-text-primary)] mb-5"
           >
             From intent to impact in four steps
           </motion.h2>
@@ -136,7 +136,7 @@ export default function HowItWorks() {
 
               {/* Content */}
               <motion.div variants={stepVariants} className="pr-8">
-                <h3 className="font-[var(--font-display)] text-lg font-semibold text-white mb-2">
+                <h3 className="font-[var(--font-display)] text-lg font-semibold text-[var(--color-text-primary)] mb-2">
                   {step.title}
                 </h3>
                 <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
@@ -178,7 +178,7 @@ export default function HowItWorks() {
                 variants={stepVariants}
                 className={index < steps.length - 1 ? 'pb-10' : 'pb-0'}
               >
-                <h3 className="font-[var(--font-display)] text-lg font-semibold text-white mb-2 mt-1">
+                <h3 className="font-[var(--font-display)] text-lg font-semibold text-[var(--color-text-primary)] mb-2 mt-1">
                   {step.title}
                 </h3>
                 <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">

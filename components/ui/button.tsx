@@ -13,10 +13,10 @@ const buttonVariants = cva(
         destructive:
           "bg-[var(--color-error)] text-white hover:bg-[var(--color-error)]/90",
         outline:
-          "border border-[var(--color-border)] bg-transparent hover:bg-[var(--color-surface)] hover:text-white",
+          "border border-[var(--color-border)] bg-transparent hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]",
         secondary:
-          "bg-[var(--color-surface-elevated)] text-white hover:bg-[var(--color-surface-elevated)]/80",
-        ghost: "hover:bg-[var(--color-surface)] hover:text-white",
+          "bg-[var(--color-surface-elevated)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface-elevated)]/80",
+        ghost: "hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]",
         link: "text-[var(--color-secondary)] underline-offset-4 hover:underline",
       },
       size: {

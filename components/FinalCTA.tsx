@@ -33,7 +33,7 @@ export default function FinalCTA() {
       <div className="relative z-10 flex flex-col items-center text-center py-32 md:py-40 px-6 md:px-8">
         {/* Headline */}
         <motion.h2
-          className="font-[var(--font-display)] text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-3xl"
+          className="font-[var(--font-display)] text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-text-primary)] max-w-3xl"
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{ duration: 0.6, ease }}

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { SpecialText } from './ui/special-text';
+import { GlobeCdn } from './ui/cobe-globe-cdn';
 
 const terminalLines = [
   { prefix: '›', text: 'Navigating to restaurant.com', delay: 1.2 },
@@ -30,7 +31,7 @@ export default function Hero() {
           <div className="w-full lg:w-[55%] flex flex-col items-start">
             {/* Headline */}
             <motion.h1
-              className="font-[var(--font-display)] text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05]"
+              className="font-[var(--font-display)] text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-text-primary)] leading-[1.05]"
               initial="hidden"
               animate="visible"
               variants={{
@@ -144,118 +145,15 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* ─── RIGHT: Terminal Preview (~45%) ─── */}
+          {/* ─── RIGHT: Globe Animation (~45%) ─── */}
           <motion.div
             className="w-full lg:w-[45%] flex justify-center lg:justify-end lg:pt-4"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.7, ease: [0.16, 1, 0.3, 1] as any }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.9, ease: [0.16, 1, 0.3, 1] as any }}
           >
-            <div
-              className="border-hairline rounded-[var(--radius-lg)] w-full max-w-md lg:max-w-none overflow-hidden"
-              style={{ background: 'var(--color-surface)' }}
-            >
-              {/* Terminal title bar */}
-              <div
-                className="flex items-center gap-2 px-4 py-3"
-                style={{ borderBottom: '1px solid var(--color-border)' }}
-              >
-                <span
-                  className="w-2.5 h-2.5 rounded-full"
-                  style={{ background: '#EF4444' }}
-                  aria-hidden="true"
-                />
-                <span
-                  className="w-2.5 h-2.5 rounded-full"
-                  style={{ background: '#F59E0B' }}
-                  aria-hidden="true"
-                />
-                <span
-                  className="w-2.5 h-2.5 rounded-full"
-                  style={{ background: '#22C55E' }}
-                  aria-hidden="true"
-                />
-                <span
-                  className="ml-2 text-xs text-[var(--color-text-muted)] font-[var(--font-mono)]"
-                >
-                  sciparser agent
-                </span>
-              </div>
-
-              {/* Terminal body */}
-              <div className="px-4 py-4 space-y-3 font-[var(--font-mono)] text-sm">
-                {/* Status indicator */}
-                <motion.div
-                  className="flex items-center gap-2 mb-4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8, duration: 0.4 }}
-                >
-                  <motion.span
-                    className="inline-block w-2 h-2 rounded-full"
-                    style={{ background: 'var(--color-secondary)' }}
-                    animate={{
-                      scale: [1, 1.3, 1],
-                      opacity: [1, 0.5, 1],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                    }}
-                    aria-hidden="true"
-                  />
-                  <span className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">
-                    Running
-                  </span>
-                </motion.div>
-
-                {/* Terminal lines */}
-                {terminalLines.map((line, i) => (
-                  <motion.div
-                    key={i}
-                    className="flex items-start gap-2"
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: line.delay,
-                      duration: 0.5,
-                      ease: [0.16, 1, 0.3, 1] as any,
-                    }}
-                  >
-                    <span
-                      className={
-                        line.done
-                          ? 'text-[var(--color-secondary)] shrink-0'
-                          : 'text-[var(--color-text-muted)] shrink-0'
-                      }
-                    >
-                      {line.prefix}
-                    </span>
-                    <span
-                      className={
-                        line.done
-                          ? 'text-[var(--color-secondary)]'
-                          : 'text-[var(--color-text-secondary)]'
-                      }
-                    >
-                      {line.text.split('').map((char, charIndex) => (
-                        <motion.span
-                          key={charIndex}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{
-                            delay: line.delay + 0.2 + (charIndex * 0.03),
-                            duration: 0.1,
-                          }}
-                        >
-                          {char}
-                        </motion.span>
-                      ))}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
+            <div className="w-full max-w-md lg:max-w-lg">
+              <GlobeCdn speed={0.004} />
             </div>
           </motion.div>
         </div>
@@ -263,3 +161,4 @@ export default function Hero() {
     </section>
   );
 }
+

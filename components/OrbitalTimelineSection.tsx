@@ -73,7 +73,7 @@ export default function OrbitalTimelineSection() {
           <span className="text-[var(--color-secondary)] font-mono text-sm tracking-widest uppercase mb-4 block">
             Roadmap
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold font-[var(--font-display)] text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold font-[var(--font-display)] text-[var(--color-text-primary)] mb-6">
             Orbital Execution
           </h2>
           <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">

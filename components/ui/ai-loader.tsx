@@ -11,7 +11,7 @@ export const AiLoader: React.FC<LoaderProps> = ({ size = 180, text = "LOADING...
   const letters = text.split("");
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-[#0B0F0D] via-[#050807] to-black backdrop-blur-md">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-[var(--color-primary)] via-[var(--color-primary-light)] to-[var(--color-primary-lighter)] backdrop-blur-md">
       <div
         className="relative flex items-center justify-center font-mono font-bold tracking-widest select-none text-[#22C55E]"
         style={{ width: size, height: size }}

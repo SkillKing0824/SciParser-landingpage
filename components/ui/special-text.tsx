@@ -44,6 +44,8 @@ export function SpecialText({
   const [animationStep, setAnimationStep] = useState<number>(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const startTimeoutRef = useRef<number | null>(null);
+  
+  const callbacksRef = useRef({ runPhase1: () => {}, runPhase2: () => {}, currentPhase });
 
   function clearStartTimeout() {
     if (startTimeoutRef.current === null) return;
@@ -131,15 +133,16 @@ export function SpecialText({
   }, [shouldAnimate, hasStarted, delay, text.length]);
 
   useEffect(() => {
+    callbacksRef.current = { runPhase1, runPhase2, currentPhase };
+  });
+
+  useEffect(() => {
     if (!hasStarted) {
       return;
     }
 
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-
-    intervalRef.current = setInterval(() => {
+    const interval = setInterval(() => {
+      const { runPhase1, runPhase2, currentPhase } = callbacksRef.current;
       if (currentPhase === "phase1") {
         runPhase1();
       } else {
@@ -148,11 +151,9 @@ export function SpecialText({
     }, speed);
 
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+      clearInterval(interval);
     };
-  }, [currentPhase, animationStep, text, speed, hasStarted]);
+  }, [speed, hasStarted]);
 
   useEffect(() => {
     if (hasStarted) {
